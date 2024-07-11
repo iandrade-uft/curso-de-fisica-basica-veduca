@@ -1,0 +1,510 @@
+\begin{center}
+    \vspace{1cm}
+    \textbf{\Large{\textcolor{mainColor}{Ondas Mecânicas}}}
+    \vspace{1cm}
+\end{center}
+
+
+\section*{Oscilador Harmônico com Massas Acopladas}
+Calcule as frequências naturais de um sistema físico aproximado por um modelo de dois graus de liberdade com as seguintes propriedades: $m_1 = 9$ kg; $m_2 = 1$ kg; $k_1 = 24$ N/m; $k_2 = 3$ N/m.
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \tikzstyle{ground}=[fill, pattern=north east lines, draw=none, minimum width=0.3cm, minimum height=0.3cm]
+
+        % Parede
+        \node (wall1) at (0, 0) [ground, minimum height=2cm] {};
+
+
+        % Piso
+        \node (ground1) at (2.85, -1.16) [ground, minimum width=6cm] {};
+        \draw (wall1.north east) -- (wall1.south east) (ground1.north west)++(.3, 0) -- (ground1.north east);
+
+        % Massa 1
+        \node [draw,minimum width=1cm,minimum height=1cm] (mass1) at (2.5, -0.5) {$m_1$};
+        % Massa 2
+        \node [draw,minimum width=1cm,minimum height=1cm] (mass2) at (5,-0.5) {$m_2$};
+
+        % Mola entre a Parede esquerda e a Massa 1
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (0.15, -0.5) -- (mass1) 
+          node [pos=0.5,above=4] {$k_1$};
+
+        % Mola entre Massa 1 e Massa 2
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (mass1) -- (mass2) 
+          node [pos=0.5,above=4] {$k_2$};
+
+        % Eixos
+        \draw[latex-latex] (8, 0) node[below] {$x$} -- (7, 0) -- (7, 1) node[right] {$y$};
+    \end{tikzpicture}
+\end{figure}
+
+\noindent\noindent\textcolor{mainColor}{\textbf{Solução:}}
+
+As equações do movimento são:
+
+\begin{align*}
+    \begin{cases}
+        m_1 \dddot{x}_1 = -k_1 x_1 - k_2 (x_1 - x_2)\\
+        m_2 \ddot{x}_2 = - k_2 (x_2 - x_1) 
+    \end{cases}
+    \Rightarrow 
+    \begin{cases}
+        m_1 \ddot{x}_1 + (k_1 + k_2) x_1 - k_2 x_2 = 0\\
+        m_2 \ddot{x}_2 - k_2 x_1 + k_2 x_2 = 0
+    \end{cases}
+\end{align*}
+
+Em notação matricial, podemos reescrever o sistema de equações como:
+
+\begin{align*}
+    \begin{bmatrix}
+        m_1 & 0\\
+        0 & m_2
+    \end{bmatrix}
+    \begin{bmatrix}
+        \ddot{x}_1\\
+        \ddot{x}_2
+    \end{bmatrix}
+     + 
+     \begin{bmatrix}
+         k_1 + k_1 & -k_2\\
+         -k_2 & k_2
+     \end{bmatrix}
+     \begin{bmatrix}
+         x_1\\
+         x_2
+     \end{bmatrix}
+     = 0
+\end{align*}
+
+Podemos propor soluções da forma:
+
+\begin{align*}
+    \begin{cases}
+        x_1 = A_1 \sin{\omega t}\\
+        x_2 = A_2 \sin{\omega t}
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        \dot{x}_1 = \omega A_1 \cos{\omega t}\\
+        \dot{x}_2 = \omega A_2 \cos{\omega t}
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        \ddot{x}_1 = -\omega^2 A_1 \sin{\omega t}\\
+        \ddot{x}_2 = - \omega^2 A_2 \sin{\omega r}
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        \ddot{x}_1 = -\omega^2 x_1\\
+        \ddot{x}_2 = - \omega^2 x_2
+    \end{cases}
+\end{align*}
+
+Substituindo na equação matricial, temos:
+
+\begin{align*}
+    \begin{bmatrix}
+        m_1 & 0 \\
+        0 & m_2
+    \end{bmatrix}
+    \begin{bmatrix}
+        -\omega^2 x_ 1\\
+        - \omega^2 x_2
+    \end{bmatrix}
+     + \begin{bmatrix}
+         k_1 + k_2 & - k_2\\
+         -k_2 & k_2
+     \end{bmatrix}
+     \begin{bmatrix}
+         x_1 \\
+         x_2
+     \end{bmatrix}
+     &=0\\
+     %\Rightarrow
+     \begin{bmatrix}
+         - m_1 \omega^2 + k_1 + k_2 & -k_2\\
+         -k_2 & -m_2 \omega^2 + k_2 
+     \end{bmatrix}
+     \begin{bmatrix}
+         x_1\\
+         x_2
+     \end{bmatrix}
+     &=0
+\end{align*}
+
+
+Para que o sistema possua solução não trivial, devemos ter que o determinante da matriz dos coeficientes deve ser igual a zero, ou seja:
+
+\begin{align*}
+    \begin{vmatrix}
+         - m_1 \omega^2 + k_1 + k_2 & -k_2\\
+         -k_2 & -m_2 \omega^2 + k_2       
+    \end{vmatrix}
+    & = 0
+\end{align*}
+
+Primeiro, escrevemos o determinante como:
+
+\[
+\text{Det} =
+\begin{vmatrix}
+- m_1 \omega^2 + k_1 + k_2 & -k_2\\
+-k_2 & -m_2 \omega^2 + k_2
+\end{vmatrix}
+\]
+
+Usando a fórmula para o determinante de uma matriz \(2 \times 2\):
+
+\[
+\text{Det} = \left( - m_1 \omega^2 + k_1 + k_2 \right) \left( - m_2 \omega^2 + k_2 \right) - \left( -k_2 \right) \left( -k_2 \right)
+\]
+
+Expandimos e simplificamos:
+
+\[
+\text{Det} = \left( - m_1 \omega^2 + k_1 + k_2 \right) \left( - m_2 \omega^2 + k_2 \right) - k_2^2
+\]
+
+\[
+\text{Det} = \left( m_1 m_2 \omega^4 - (k_1 + k_2)m_2 \omega^2 - (k_1 + k_2)k_2 + m_1 k_2 \omega^2 - k_2^2 \right)
+\]
+
+\[
+\text{Det} = m_1 m_2 \omega^4 - (m_2 k_1 + m_2 k_2 + m_1 k_2) \omega^2 + k_1 k_2 + k_2^2 - k_2^2
+\]
+
+\[
+\text{Det} = m_1 m_2 \omega^4 - (m_2 k_1 + m_2 k_2 + m_1 k_2) \omega^2 + k_1 k_2
+\]
+
+Para encontrar os valores de \(\omega^2\), resolvemos a equação quadrática:
+
+\[
+m_1 m_2 \omega^4 - (m_2 k_1 + m_2 k_2 + m_1 k_2) \omega^2 + k_1 k_2 = 0
+\]
+
+Seja \(\lambda = \omega^2\), temos:
+
+\[
+m_1 m_2 \lambda^2 - (m_2 k_1 + m_2 k_2 + m_1 k_2)\lambda + k_1 k_2 = 0
+\]
+
+Resolvendo a equação quadrática para \(\lambda\):
+
+\[
+\lambda = \frac{(m_2 k_1 + m_2 k_2 + m_1 k_2) \pm \sqrt{(m_2 k_1 + m_2 k_2 + m_1 k_2)^2 - 4 m_1 m_2 k_1 k_2}}{2 m_1 m_2}
+\]
+
+Assim, temos os valores para \(\omega^2\):
+
+\[
+\omega^2 = \frac{(m_2 k_1 + m_2 k_2 + m_1 k_2) \pm \sqrt{(m_2 k_1 + m_2 k_2 + m_1 k_2)^2 - 4 m_1 m_2 k_1 k_2}}{2 m_1 m_2}
+\]
+
+ou, mais explicitamente:
+
+\[
+\omega^2 = \frac{k_1 m_2 + k_2 m_1 + k_2 m_2 \pm \sqrt{k_1^2 m_2^2 - 2 k_1 k_2 m_1 m_2 + 2 k_1 k_2 m_2^2 + k_2^2 m_1^2 + 2 k_2^2 m_1 m_2 + k_2^2 m_2^2}}{2 m_1 m_2}
+\]
+
+
+
+
+
+
+Para calcular os valores de \(\omega\), substituímos \(m_1 = 9\) kg, \(m_2 = 1\) kg, \(k_1 = 24\) N/m e \(k_2 = 3\) N/m na equação:
+
+\[
+\omega^2 = \frac{k_1 m_2 + k_2 m_1 + k_2 m_2 \pm \sqrt{k_1^2 m_2^2 - 2 k_1 k_2 m_1 m_2 + 2 k_1 k_2 m_2^2 + k_2^2 m_1^2 + 2 k_2^2 m_1 m_2 + k_2^2 m_2^2}}{2 m_1 m_2}
+\]
+
+Substituindo os valores:
+
+\[
+\omega^2 = \frac{(24 \cdot 1 + 3 \cdot 9 + 3 \cdot 1) \pm \sqrt{(24 \cdot 1)^2 - 2 \cdot 24 \cdot 3 \cdot 9 + 2 \cdot 24 \cdot 3 \cdot 1 + (3 \cdot 9)^2 + 2 \cdot (3 \cdot 9 \cdot 3 \cdot 1) + (3 \cdot 1)^2}}{2 \cdot 9 \cdot 1}
+\]
+
+\[
+\omega^2 = \frac{(24 + 27 + 3) \pm \sqrt{576 - 1296 + 144 + 729 + 162 + 9}}{18}
+\]
+
+\[
+\omega^2 = \frac{54 \pm \sqrt{324}}{18}
+\]
+
+\[
+\omega^2 = \frac{54 \pm 18}{18}
+\]
+
+Portanto, temos dois valores para \(\omega^2\):
+
+\[
+\omega^2_1 = \frac{54 + 18}{18} = 4 \quad \text{e} \quad \omega^2_2 = \frac{54 - 18}{18} = 2
+\]
+
+Calculando \(\omega\) a partir desses valores:
+
+\[
+\omega_1 = \sqrt{4} = 2 \quad \text{e} \quad \omega_2 = \sqrt{2} \approx 1.414
+\]
+
+Portanto, os valores de \(\omega\) são aproximadamente \(2\) rad/s e \(1.414\) rad/s.
+
+
+
+% ===============
+\newpage
+\section*{Oscilações Bidimensionais}
+% ---------------
+Determinar as frequências de oscilação $\omega$ do sistema mostrado na figura abaixo, em que $m_1 = m_2 = m$:
+
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.3cm,minimum height=0.3cm]
+
+        % Massa 1
+        \node [draw,minimum width=0.5cm,minimum height=0.5cm] (mass1) at (-1, 0) {$m_1$};
+        % Massa 2
+        \node [draw,minimum width=0.5cm,minimum height=0.5cm] (mass2) at (1, 0) {$m_2$};
+
+        % Mola entre Massa 1 e Massa 2
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (mass1) -- (mass2) 
+          node [pos=0.5,above=4] {$k$};
+
+        % Parede esquerda
+        \node (wall1) at (-3, 0) [ground, minimum height=2cm] {};
+        \draw (wall1.north east) -- (wall1.south east);
+
+        % Mola entre a Parede esquerda e a Massa 1
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (wall1.east) -- (mass1) 
+          node [pos=0.5,above=4] {$4k$};
+
+        % Parede direita
+        \node (wall2) at (3, 0) [ground, minimum height=2cm] {};
+        \draw (wall2.north west) -- (wall2.south west);
+
+        % Mola entre a Parede direita e a Massa 2
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (mass2) -- (wall2.west) 
+          node [pos=0.5,above=4] {$4k$};
+
+        % Parede Superior
+        \node (wall3) at (0, 2.5) [ground, minimum width=4cm] {};
+        \draw (wall3.south west) -- (wall3.south east);
+        
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (-1, 2.35) -- (mass1) 
+          node [pos=0.5,right=4] {$3k$};
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (1, 2.35) -- (mass2) 
+          node [pos=0.5,right=4] {$4k$};
+
+        % Parede Inferior
+        \node (wall4) at (0, -2.5) [ground, minimum width=4cm] {};
+        \draw (wall4.north west) -- (wall4.north east);
+        
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (mass1) -- (-1, -2.35)
+          node [pos=0.5,right=4] {$k$};
+        \draw [ snake=coil, segment amplitude=5pt, segment length=5pt]
+          (mass2) -- (1, -2.35)
+          node [pos=0.5,right=4] {$2k$};
+
+        % Eixos
+        \draw[latex-latex] (5, 1) node[below] {$x$} -- (4, 1) -- (4, 2) node[right] {$y$};
+    \end{tikzpicture}
+\end{figure}
+
+\noindent\textcolor{mainColor}{\textbf{Solução:}}
+
+Escrevamos as equações de movimento para cada massa:
+
+\begin{align*}
+    \begin{cases}
+        m\ddot{x}_1 = -4kx_1 - k (x_1 - x_2)\\
+        m\ddot{x}_2 = -4kx_2 - k (x_2 - x_1)\\
+        m\ddot{y}_1 = -3ky_1 - ky_1\\
+        m\ddot{y}_2 = -4ky_2 - 2ky_2
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        m\ddot{x}_1 = -5kx_1 + kx_2\\
+        m\ddot{x}_2 = -5kx_2 + kx_1\\
+        m\ddot{y}_1 = -4ky_1\\
+        m\ddot{y}_2 = -6ky_2
+    \end{cases}
+\end{align*}
+
+Façamos a seguinte mudança de coordenadas:
+$
+q_1 = x_1,\ q_2 = x_2,\ q_3 = y_1,\ q_4 = y_2.
+$
+
+Com essa mudança de variável, podemos reescrever o sistema de equações como:
+
+\begin{align*}
+    \begin{cases}
+        m\ddot{q}_1 + 5k q_1 - k q_2 = 0\\
+        m\ddot{q}_2 + 5k q_2 - k q_1 = 0\\
+        m\ddot{q}_3 + 4k q_3 = 0\\
+        m\ddot{q}_4 + 6k q_4 = 0
+    \end{cases}
+    &\Rightarrow
+    \begin{bmatrix}
+        m & 0 & 0 & 0\\
+        0 & m & 0 & 0\\
+        0 & 0 & m & 0\\
+        0 & 0 & 0 & m
+    \end{bmatrix}
+    \begin{bmatrix}
+        \ddot{q}_1\\
+        \ddot{q}_2\\
+        \ddot{q}_3\\
+        \ddot{q}_4
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        5k & -k & 0 &0\\
+        -k & 5k & 0 & 0\\
+        0 & 0 & 4k & 0\\
+        0 & 0 & 0 & 6k
+    \end{bmatrix}
+    \begin{bmatrix}
+        q_1\\
+        q_2\\
+        q_3\\
+        q_4
+    \end{bmatrix}
+    = 0\\
+    &\Rightarrow
+    m
+    \begin{bmatrix}
+        \ddot{q}_1\\
+        \ddot{q}_2\\
+        \ddot{q}_3\\
+        \ddot{q}_4
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        5k & -k & 0 &0\\
+        -k & 5k & 0 & 0\\
+        0 & 0 & 4k & 0\\
+        0 & 0 & 0 & 6k
+    \end{bmatrix}
+    \begin{bmatrix}
+        q_1\\
+        q_2\\
+        q_3\\
+        q_4
+    \end{bmatrix}
+    = 0
+\end{align*}
+
+Podemos propor soluções na forma $q_i = A_i \sin{\omega t}$, para $i = 1, 2, 3, 4$ e determinemos os valores de $\omega$ para os quais o sistema possui solução. Então, para cada valor de $i$, temos:
+
+\begin{align*}
+    q_i = A_i \sin{\omega t} \Rightarrow \dot{q}_i = \omega A_i \cos{\omega t} &\Rightarrow \ddot{q}_i = -\omega^2 A_i \sin{\omega t}\\
+    &\Rightarrow \ddot{q}_i = - \omega^2 q_i
+\end{align*}
+
+Substituindo no sistema de equações acima, obtemos:
+
+\begin{align*}
+    m
+    \begin{bmatrix}
+        - \omega^2 q_1\\
+        - \omega^2 q_2\\
+        - \omega^2 q_3\\
+        - \omega^2 q_4
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+        5k & -k & 0 &0\\
+        -k & 5k & 0 & 0\\
+        0 & 0 & 4k & 0\\
+        0 & 0 & 0 & 6k
+    \end{bmatrix}
+    \begin{bmatrix}
+        q_1\\
+        q_2\\
+        q_3\\
+        q_4
+    \end{bmatrix}
+    = 0
+    \Rightarrow
+    \begin{bmatrix}
+        5k - m\omega^2 & -k & 0 &0\\
+        -k & 5k - m\omega^2  & 0 & 0\\
+        0 & 0 & 4k - m\omega^2 & 0\\
+        0 & 0 & 0 & 6k - m\omega^2
+    \end{bmatrix}
+    \begin{bmatrix}
+        q_1\\
+        q_2\\
+        q_3\\
+        q_4
+    \end{bmatrix}
+    = 0
+\end{align*}
+
+Para que o sistema possua solução não trivial, devemos ter que o determinante da matriz dos coeficientes deve ser igual a zero, ou seja:
+
+\begin{small}
+    \begin{align*}
+        \begin{vmatrix}
+            5k - m\omega^2 & -k & 0 &0\\
+            -k & 5k - m\omega^2  & 0 & 0\\
+            0 & 0 & 4k - m\omega^2 & 0\\
+            0 & 0 & 0 & 6k - m\omega^2
+        \end{vmatrix}
+        &=0 \\
+        (-1)^{1+1}\cdot(5k - m\omega^2)\cdot 
+        \begin{vmatrix}
+            5k - m\omega^2  & 0 & 0\\
+            0 & 4k - m\omega^2 & 0\\
+            0 & 0 & 6k - m\omega^2
+        \end{vmatrix}
+        + (-1)^{1+2} \cdot (-k) \cdot 
+        \begin{vmatrix}
+            -k &  0 & 0\\
+            0 &  4k - m\omega^2 & 0\\
+            0 &  0 & 6k - m\omega^2
+        \end{vmatrix}
+        + 0 + 0 &= 0\\
+        (5k-m\omega^2)\left[(5k-m\omega^2)(4k-m\omega^2)(6k-m\omega^2)\right] + k \left[(-k)(4k-m\omega^2)(6k-m\omega^2)\right] &= 0\\
+        (5k-m\omega^2)^2 (4k-m\omega^2)(6k-m\omega^2) - k^2 (4k-m\omega^2)(6k-m\omega^2) &= 0\\
+        \left[(5k-m\omega^2) - k^2\right] (4k-m\omega^2)(6k-m\omega^2) &= 0\\
+        \left[(5k-m\omega^2) + k\right]\left[(5k-m\omega^2) - k\right](4k-m\omega^2)(6k-m\omega^2) &= 0\\
+        (6k-m\omega^2) (4k-m\omega^2)(4k-m\omega^2)(6k-m\omega^2) &= 0\\
+        (4k-m\omega^2)^2(6k-m\omega^2)^2 &= 0\\
+    \end{align*}   
+\end{small}
+
+Da última equação, tem-se que:
+
+\begin{align*}
+    \begin{cases}
+        4k-m\omega^2 = 0 \mbox{ ou}\\
+        6k-m\omega^2 = 0
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+        \omega_1 = \sqrt{\dfrac{4k}{m}}\\
+        \omega_2 = \sqrt{\dfrac{6k}{m}}
+    \end{cases}
+\end{align*}
+
+Cada solução possui duplicidade 2.
+
+
+
+

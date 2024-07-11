@@ -1,0 +1,87 @@
+\begin{center}
+    \vspace{1cm}
+    \textbf{\Large{\textcolor{mainColor}{Mecânica dos Fluidos}}}
+    \vspace{1cm}
+\end{center}
+
+\section*{Pressão atmosférica}
+
+Cálculo da pressão atmosférica $P$ a uma altura $y$ acima do nível do mar, em que a pressão atmosférica é igual a $P_0$, conforme mostrado na figura abaixo.
+
+
+<<include=FALSE>>=
+set.seed(123)
+r0 <- 4
+dr <- 3
+alfas <- c(60, 120)
+
+p0 <- round(r0 * c(cos(alfas[1] * pi/180), sin(alfas[1] * pi/180)), 3)
+n <- 150
+
+x <- c()
+y <- c()
+ar <- ""
+for (i in 1:n) {
+    r <- sample(x=seq(from=r0, to=r0+dr, length=11), size=1, prob=((11:1)/sum(11:1))^2) + runif(n=1, min=0.1, max=0.3)
+    alfa <- (alfas[1] +  runif(n=1, min=0, max=1) * (alfas[2] - alfas[1])) * pi/180
+    xi <- r * cos(alfa)
+    yi <- r * sin(alfa)
+    pt <- sprintf("\\filldraw[gray] (%5.3f, %5.3f) circle (0.3pt);", xi, yi)
+    ar <- sprintf("%s%s", ar, pt)
+}
+@
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.2]
+        \Sexpr{ar}
+        \draw[ultra thick] (\Sexpr{p0}) arc(\Sexpr{alfas[1]}:\Sexpr{alfas[2]}:\Sexpr{r0});
+        \filldraw[mainColor] (0, \Sexpr{r0+dr/2}) circle (1.5pt) node[above, color=black, fill=white, yshift=2pt] {$P = ?$};
+        \draw[-latex] (0, \Sexpr{r0}) -- (0, \Sexpr{r0+dr/2}) node[midway, right, fill=white, xshift=2pt] {$y$};
+        \filldraw[mainColor] (0, \Sexpr{r0}) circle (1.5pt) node[below, color=black, fill=white, yshift=-2pt] {$P_0$};
+    \end{tikzpicture}
+\end{figure}
+
+\noindent\textcolor{mainColor}{\textbf{Solução:}}
+
+Consideremos inicialmente a Equação de Clapeyron para os gases ideais:
+
+$$
+PV = nRT
+$$
+em que:
+\begin{itemize}
+    \item $P$ é a pressão do gás;
+    \item $V$ é o volume ocupado pelo gás;
+    \item $n$ é a quantidade de mols;
+    \item $T$ é a temperatura absoluta (em kelvin);
+    \item $R$ é a constante universal dos gases ideais.
+\end{itemize}
+
+Seja $m$ a massa do gás e $M$ a massa molar do material que que é constituído o referido gás. O número de mols é dado por $n = \dfrac{m}{M}$. Substituindo na Equação de Clapeyron, tem-se:
+
+\begin{align*}
+    PV = \dfrac{m}{M} RT \Rightarrow P = \rho \dfrac{RT}{M} \Rightarrow \dfrac{P}{\rho} = \dfrac{RT}{M}
+\end{align*}
+onde $\rho = \dfrac{m}{V}$ é a densidade do gás.
+
+Consideremos, numa primeira simplificação que a temperatura $T$ é uniforme para qualquer altura $y$. Então, 
+
+\begin{equation}
+\dfrac{P}{\rho} = \dfrac{RT}{M} = \text{cte.}
+\end{equation}\label{eq:razao-P-rho}
+
+Por outro lado, pela  lei de Stevin, tem-se:
+
+\begin{equation}
+\dfrac{dP}{dy} = - \rho g
+\end{equation}\label{eq:lei-stevin}
+
+Substituindo $\rho$ de \ref{eq:razao-P-rho} em \ref{eq:lei-stevin}, obtemos:
+
+\begin{align*}
+    \dfrac{dP}{dy} = - \left(\dfrac{M P}{R T}\right) g &\Rightarrow \dfrac{dP}{P} = - \left(\dfrac{M g}{R T}\right) dy 
+    \Rightarrow\int_{P_0}^{P} \dfrac{dP}{P} = - \left(\dfrac{M g}{R T}\right) \int_{0}^{y} dy\\
+    &\Rightarrow \ln{P} - \ln{P_0} = - \left(\dfrac{M g}{R T}\right)y \Rightarrow \ln{\left(\dfrac{P}{P_0}\right)} = - \left(\dfrac{M g}{R T}\right)y\\
+    &\Rightarrow P = P_0 e^{-(Mg/RT) y}
+\end{align*}
