@@ -24,7 +24,7 @@
 
 \makecover{}
 
-\Sexpr{knitr::knit_child('sections/ondas_mecanicas.Rtex')}
+%\Sexpr{knitr::knit_child('sections/ondas_mecanicas.Rtex')}
 
-%\Sexpr{knitr::knit_child('sections/mecanica_dos_fluidos.Rtex')}
+\Sexpr{knitr::knit_child('sections/mecanica_dos_fluidos.Rtex')}
 \end{document}
