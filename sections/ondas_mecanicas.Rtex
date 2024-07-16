@@ -42,7 +42,7 @@ Calcule as frequências naturais de um sistema físico aproximado por um modelo 
     \end{tikzpicture}
 \end{figure}
 
-\noindent\noindent\textcolor{mainColor}{\textbf{Solução:}}
+\iniSol
 
 As equações do movimento são:
 
@@ -255,6 +255,7 @@ Calculando \(\omega\) a partir desses valores:
 
 Portanto, os valores de \(\omega\) são aproximadamente \(2\) rad/s e \(1.414\) rad/s.
 
+\fimSol
 
 
 % ===============
@@ -324,7 +325,7 @@ Determinar as frequências de oscilação $\omega$ do sistema mostrado na figura
     \end{tikzpicture}
 \end{figure}
 
-\noindent\textcolor{mainColor}{\textbf{Solução:}}
+\iniSol
 
 Escrevamos as equações de movimento para cada massa:
 
@@ -504,6 +505,8 @@ Da última equação, tem-se que:
 \end{align*}
 
 Cada solução possui duplicidade 2.
+
+\fimSol
 
 
 

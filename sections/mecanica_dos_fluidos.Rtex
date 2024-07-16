@@ -42,7 +42,8 @@ for (i in 1:n) {
     \end{tikzpicture}
 \end{figure}
 
-\noindent\textcolor{mainColor}{\textbf{Solução:}}
+\iniSol
+
 
 Consideremos inicialmente a Equação de Clapeyron para os gases ideais:
 
@@ -86,6 +87,8 @@ Substituindo $\rho$ de \ref{eq:razao-P-rho} em \ref{eq:lei-stevin}, obtemos:
     &\Rightarrow P = P_0 e^{-(Mg/RT) y}
 \end{align*}
 
+\fimSol
+
 \newpage
 \section*{Fluido rodando}
 
@@ -104,7 +107,7 @@ Considere um fluido de densidade $\rho$ em um recipiente que gira com velocidade
     \end{tikzpicture}
 \end{figure}
 
-\noindent\textcolor{mainColor}{\textbf{Solução:}}
+\iniSol
 
 A figura seguinte mostra a seção transversão do fluido e o sistema de eixo posicionado o ponto mais baixo da superfície. Consideremos um elemento de massa anelar em $y = 0$ com espessura $\Delta r$ e área lateral $A$.
 
@@ -193,4 +196,5 @@ em que $P_{\text{atm}}$ é a pressão atmosférica. Igualando as expressões \re
 \end{align*}
 
 Portanto, o fluido assume a forma de um paraboloide cujo eixo de simetria é o eixo de rotação. Note-se que a forma do paraboloide independe da densidade do fluido.
- 
+
+\fimSol
