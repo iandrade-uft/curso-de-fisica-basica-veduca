@@ -120,3 +120,18 @@ referencia_latex <- gera_referencia_abnt(
 
 % Bold Vector
 \newcommand{\vet}[1]{\mathbf{\hat{#1}}}
+
+% Comando iniciar Solução
+\newcommand{\iniSol}{
+    \noindent\textcolor{mainColor}{\rule{0.3\textwidth}{0.4pt}}\\
+    \noindent\textcolor{mainColor}{\textbf{Solução:}}\\
+}
+
+% Comando finalizar Solução
+\newcommand{\fimSol}{
+    %
+    \hfill\fcolorbox{mainColor}{mainColor}
+
+    
+    \hfill\textcolor{mainColor}{\rule{0.3\textwidth}{0.4pt}}
+}
