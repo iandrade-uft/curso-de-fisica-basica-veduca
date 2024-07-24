@@ -1,8 +1,27 @@
-\begin{center}
-    \vspace{1cm}
-    \textbf{\Large{\textcolor{mainColor}{Ondas Mecânicas}}}
-    \vspace{1cm}
-\end{center}
+---
+title: "Título"
+author: "Igo da Costa Andrade"
+
+# Metadados
+booktitle: "Curso de Física Básica"
+#booksubtitle: "Subtítulo do Livro"
+bookauthors: "Veduca"
+bookaddres: "Local"
+bookpublisher: "Editora"
+bookyear: "2000"
+chaptertitle: "Ondas Mecânicas"
+#chapternumber: "1"
+maincolor: "dc2531"
+
+output: 
+  bookdown::pdf_document2:
+    template: template.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
 
 
 \section*{Oscilador Harmônico com Massas Acopladas}
@@ -258,10 +277,9 @@ Portanto, os valores de \(\omega\) são aproximadamente \(2\) rad/s e \(1.414\) 
 \fimSol
 
 
-% ===============
 \newpage
 \section*{Oscilações Bidimensionais}
-% ---------------
+
 Determinar as frequências de oscilação $\omega$ do sistema mostrado na figura abaixo, em que $m_1 = m_2 = m$:
 
 
@@ -507,7 +525,3 @@ Da última equação, tem-se que:
 Cada solução possui duplicidade 2.
 
 \fimSol
-
-
-
-
