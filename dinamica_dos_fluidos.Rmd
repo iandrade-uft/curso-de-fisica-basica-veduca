@@ -196,3 +196,46 @@ Substituindo $v_2$ da Equação (\ref{eq:vazao2}) na Equação (\ref{eq:bernoull
   &\Rightarrow v_1^2 = \dfrac{-2g(h_1-h_2)}{1 - \left(\dfrac{A_1}{A_2}\right)^2}\\
   &\Rightarrow v_1^2 = \dfrac{2g(h_1 - h_2)}{\left(\dfrac{A_1}{A_2}\right)^2 - 1}
 \end{align*}
+
+\newpage
+\section*{Força Hidrodinâmica}
+
+\subsection*{Força de sustentação de um avião em voo}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    %% Asa
+    \draw[fill=gray, fill opacity=0.5] (0,-0.5) arc (240:120:0.5) arc (120:90:2) arc (92:62:10) -- cycle;
+    %% Ar
+    \foreach \y in {-0.6, -0.4, ..., 0.6} {
+      \draw[-latex, red] (-2.5, \y) -- ++(1, 0);
+    }
+    \draw[-latex, red] (-1.25, -0.6) arc (90:70:2) arc (250:270:4) -- ++(7.2, 0);
+    \draw[-latex, red] (-1.25, -0.4) arc (90:70:2) arc (250:270:4) -- ++(7.2, 0);
+    \draw[-latex, red] (-1.25, -0.2) arc (270:320:1) arc (140:90:2) arc (90:70:10) arc (250:270:10) -- ++(0.12, 0);;
+    \draw[-latex, red] (-1.25, 0.0) arc (270:320:1) arc (140:90:1.9) arc (90:70:10) arc (250:270:10) -- ++(0.2, 0);
+    \draw[-latex, red] (-1.25, 0.2) arc (270:320:1) arc (140:90:1.8) arc (90:70:10) arc (250:270:10) -- ++(0.25, 0);
+    \draw[-latex, red] (-1.25, 0.4) arc (270:320:1) arc (140:90:1.7) arc (90:70:10) arc (250:270:10) -- ++(0.3, 0);
+    \filldraw (2, -0.5) circle (2pt) node[above, yshift=2pt] {$2$};
+    \filldraw (2, 0.6) circle (2pt) node[below, yshift=-2pt] {$1$};
+    \draw[ultra thick, -latex, blue] (2, 1.5) node[above] {$P_1$} -- (2, 0.6) ;
+    \draw[ultra thick, -latex, blue] (2, -2) node[below] {$P_2$} -- (2, -0.6) ;
+    \node[below, red] at (1, -1) {$\overrightarrow{v_2}$};  
+    \node[above, red] at (1, 1.4) {$\overrightarrow{v_1}$}; 
+  \end{tikzpicture}
+\end{figure}
+
+Consideremos os pontos $1$ e $2$, respectivamente acima e abaixo da asa do avião. Desconsideremos o impacto da diferença de altura entre os pontos e apliquemos o Teorema de Bernoulli:
+
+\begin{align*}
+  P_1 + \dfrac{1}{2} \rho v_1^2  = P_2 + \dfrac{1}{2} \rho v_2^2  \Rightarrow P_2 - P_1 = \dfrac{1}{2} \rho \left(v_1^2 - v_2^2 \right)
+\end{align*}
+
+Para analizarmos a equação acima, observemos a figura da asa do avião. Note-se que a parcela de ar que passa pela parte superior da asa percorre um deslocamento superior ao da parcela de ar que passa pela parte inferior da asa. Assim, podemos concluir que $v_1 > v_2$, pois se não o fosse, haveria um acúmulo de massa de ar acima da asa.  Então,
+
+$$
+v_1 > v_2 \Rightarrow P_2 > P_1.
+$$
+
+Portanto, há uma força resultante para acima atuando sobre a asa, sustentanto a estrutura do avião.
