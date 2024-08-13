@@ -1,0 +1,41 @@
+---
+title: "Título"
+author: "Igo da Costa Andrade"
+
+# Metadados
+booktitle: "Curso de Física Básica"
+#booksubtitle: "Subtítulo do Livro"
+bookauthors: "Veduca"
+bookaddres: "Local"
+bookpublisher: "Editora"
+bookyear: "2000"
+chaptertitle: "Movimentos"
+#chapternumber: "1"
+maincolor: "dc2531"
+
+output: 
+  bookdown::pdf_document2:
+    template: template.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+\section*{Movimentos em uma dimensão}
+
+Seja um corpo deslocando-se de tal forma que sua posição é dada por $x(t) = 4t^2$, com $t$ dado em segundos e $x$ em cm. Calcule a função da velocidade deste corpo, $v(t)$.
+
+
+
+\iniSol
+
+\begin{align*}
+  x(t) = 4t^2 \Rightarrow v(t) &= \dfrac{dx(t)}{dt} = \dfrac{d}{dt}(4t^2) \\
+  v(t) &= 4 \cdot 2 \cdot t^{2-1}\\
+  v(t) &= 8t \;\text{(cm/s)}
+\end{align*}
+
+\fimSol

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.22)  24 JUL 2024 10:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.22)  13 AUG 2024 17:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -203,7 +203,7 @@ Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
 \backup@length=\skip59
 \ar@cellbox=\box64
 )) (/home/labfis/.TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/07/18 v4.3 Extensive control of page headers and footers
+Package: fancyhdr 2024/07/23 v4.3.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip60
 \f@nch@O@elh=\skip61
 \f@nch@O@erh=\skip62
@@ -259,6 +259,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box66
 \@float@everytoks=\toks29
 \@floatcapt=\box67
+) (/home/labfis/.TinyTeX/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 ) (/home/labfis/.TinyTeX/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/home/labfis/.TinyTeX/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/home/labfis/.TinyTeX/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/home/labfis/.TinyTeX/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks30
 \pgfutil@tempdima=\dimen180
@@ -463,20 +465,20 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (./ondas_mecanicas.aux)
 \openout1 = `ondas_mecanicas.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -517,30 +519,30 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 (/home/labfis/.TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 140.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 141.
 (/home/labfis/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 140.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 141.
 (/home/labfis/.TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 140.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 141.
 (/home/labfis/.TinyTeX/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 <figure/capa.png, id=4, 1137.4997pt x 695.59875pt>
 File: figure/capa.png Graphic file (type png)
 <use figure/capa.png>
-Package pdftex.def Info: figure/capa.png  used on input line 140.
+Package pdftex.def Info: figure/capa.png  used on input line 141.
 (pdftex.def)             Requested size: 91.04915pt x 55.67026pt.
 
-Overfull \hbox (0.43506pt too wide) in paragraph at lines 140--140
+Overfull \hbox (21.00099pt too wide) in paragraph at lines 141--141
 []$[]$ $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
@@ -560,14 +562,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.60004pt}.
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 454--455
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
 
 
 [4]
-Overfull \hbox (7.42531pt too wide) detected at line 616
+Overfull \hbox (7.42531pt too wide) detected at line 617
 []
  []
 
@@ -587,15 +589,15 @@ L3 programming layer <2024-05-27>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19362 strings out of 475544
- 428035 string characters out of 5777453
+ 19380 strings out of 475544
+ 428609 string characters out of 5777453
  1967905 words of memory out of 5000000
- 41695 multiletter control sequences out of 15000+600000
+ 41710 multiletter control sequences out of 15000+600000
  565250 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,17n,87p,428b,723s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/labfis/.TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/labfis/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on ondas_mecanicas.pdf (5 pages, 599798 bytes).
+Output written on ondas_mecanicas.pdf (5 pages, 599867 bytes).
 PDF statistics:
  97 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
