@@ -1,0 +1,133 @@
+---
+title: "Título"
+author: "Igo da Costa Andrade"
+
+# Metadados
+booktitle: "Curso de Física Básica"
+#booksubtitle: "Subtítulo do Livro"
+bookauthors: "Veduca"
+bookaddres: "Local"
+bookpublisher: "Editora"
+bookyear: "2000"
+chaptertitle: "Movimentos em duas ou três dimensões"
+#chapternumber: "1"
+maincolor: "dc2531"
+
+output: 
+  bookdown::pdf_document2:
+    template: template.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+\section*{Lançamento a partir de uma plataforma inclinada}
+```{r, include=FALSE}
+
+theta <- 30
+theta_r  <- pi * theta / 180
+r <- 3
+H <- r * sin(theta_r)
+B <- r * cos(theta_r)
+v_0 <- 10
+g <- 9.81
+v <- sqrt(v_0^2 - 2*g*H)
+
+A <- v^2 * sin(2*theta_r)/g
+D <- A/2 * (1 + sqrt(1+2*g*H/(v*sin(theta_r))^2))
+
+t_max <- D / (v*cos(theta_r))
+
+n <- 10
+t <- seq(from=0, to=t_max, length=n)
+x <- v*cos(theta_r) * t
+y <- H + v*sin(theta_r)*t - g*t^2/2
+traj <- ""
+for (i in 1:n) {
+    traj <- sprintf("%s\\draw[fill=red] (%.2f, %.2f) circle (1pt);", traj, x[i]+B, y[i]+0.25)
+}
+```
+
+\begin{enumerate}
+  \item Um corpo, que vem com velocidade $v_0$, passa por uma plataforma de lançamento com uma inclinação $\theta$ conhecida, com altura $H$. No fim da plataforma, o corpo sai do local e alcança uma distância $d$. Qual é essa distância?
+\end{enumerate}
+
+\iniSol
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=0.8]
+    \draw[thick] (-2, 0) -- (12, 0);
+    \draw[fill=gray!50] (0,0) -- (`r B`, 0) -- (`r B`, `r H`) -- cycle;
+    \draw[latex-latex] (1, 0) arc (0:`r theta`:1) node[midway, right] {$\theta$};
+    \draw[latex-latex] (`r B+0.2`, 0) -- (`r B+0.2`, `r H`) node[midway, right] {$H$};
+    \draw[fill=red!50] (-1.5, 0.25) circle (0.25);
+    \draw[-latex] (-1.5, 0.25) -- (-0.5, 0.25) node [above] {$v_0$};
+    \draw[latex-latex] (`r B`, -0.2) -- (`r B+D`, -0.2) node[midway, below] {$D$}; 
+    `r traj`
+  \end{tikzpicture}
+\end{figure}
+
+Dividimos o movimento em duas etapas: (i) o movimento de subida na plataforma inclinada; e (ii) o movimento parabólico assim que o corpo perde o contato com a plataforma.
+
+
+Na primeira etapa, o corpo sobe a plataforma inclinada com desaceleração dada por
+
+$$
+a = g \sin{\theta}
+$$
+Ao fim dessa etapa, o corpo percorrerá uma distância igual a $\Delta s = \dfrac{H}{\sin{\theta}}$ e atingirá uma velocidade$v$, tal que:
+
+\begin{align*}
+  v^2 = v_0^2 - 2 a \Delta s &\Rightarrow v^2 = v_0^2 - 2g \sin{\theta} \dfrac{H}{\sin{\theta}}\\
+  &\Rightarrow v^2 = v_0^2 - 2gH\\
+  &\Rightarrow v = \sqrt{v_0^2 - 2gH}
+\end{align*}
+
+
+Depois de percorrer a plataforma, o corpo é lançado da altura $H$, com  velocidade $v$ calculada acima. As equações horárias da trajerória são as seguintes:
+
+\begin{align*}
+  \begin{cases}
+    x = v \cos{\theta} t\\
+    y = H + v \sin{\theta} t - \dfrac{1}{2}gt^2
+  \end{cases}
+\end{align*}
+
+Substituindo $t = \dfrac{x}{v \cos{\theta}}$ na equação horária da posição $x$ na equação para a posição $y$, temos:
+
+\begin{align*}
+  y &= H + v \sin{\theta} \dfrac{x}{v \cos{\theta}} - \dfrac{1}{2} g \left(\dfrac{x}{v\cos{\theta}}\right)^2\\
+  y &= H + \tan{\theta} x - \dfrac{g}{2v^2 \cos^2 {\theta}} x^2
+\end{align*}
+
+Para determinar o alcance do corpo, façamos $y = 0$, donde:
+
+\begin{align*}
+  H + \tan{\theta} x - \dfrac{g}{2v^2 \cos^2 {\theta}} x^2 = 0 & \Rightarrow x^2 - \tan{\theta}\left(\dfrac{2v^2\cos^2{\theta}}{g}\right) x - H \left(\dfrac{2v^2\cos^2{\theta}}{g}\right) = 0\\
+  &\Rightarrow x^2 - \dfrac{v^2 2 \sin{\theta} \cos{\theta} }{g} x - \dfrac{2v^2 H \cos^2{\theta}}{g}  = 0\\
+  &\Rightarrow x^2 - \dfrac{v^2 \sin{(2 \theta)}}{g} x - \dfrac{2v^2 H\cos^2 {\theta}}{g} = 0\\
+  &\Rightarrow x = \dfrac{-\left[- \dfrac{v^2 \sin{(2 \theta)}}{g}\right] \pm \sqrt{\left[- \dfrac{v^2 \sin{(2 \theta)}}{g}\right]^2 - 4 \left(- \dfrac{2v^2 H \cos^2{\theta}}{g}\right)   }     }{2}\\
+  &\Rightarrow x = \dfrac{ \dfrac{v^2 \sin{2\theta} }{g} \pm \sqrt{\left(\dfrac{v^2 \sin{2\theta}}{g}\right)^2 +  \dfrac{8v^2 H \cos^2{\theta}}{g}  }   }{2}\\
+  &\Rightarrow x = \dfrac{v^2 \sin{2\theta} }{g} \left[\dfrac{1}{2} \pm \dfrac{1}{2}\sqrt{1 + \dfrac{8v^2H \cos^2{\theta}}{g} \dfrac{g^2}{v^4 \sin^2{2\theta}}}\right]\\
+  &\Rightarrow x = \dfrac{v^2 \sin{2\theta} }{g} \left[\dfrac{1}{2} \pm \dfrac{1}{2}\sqrt{1 + \dfrac{2gH}{v^2\sin^2 {\theta}}}\right]\\
+\end{align*}
+
+Desprezamos a solução com sinal negativo pois representa um ponto da parábola anterior à posição de lanlamento. Assim, o alcance $D$ é dado por:
+
+$$
+D = \dfrac{v^2\sin{2\theta}}{g}\left(\dfrac{1}{2} + \dfrac{1}{2} \sqrt{1 + \dfrac{2gH}{v^2\sin^2 {\theta}}}\right)
+$$
+
+Lembramdo que $v^2 = v_0^2 - 2gH$, temos:
+
+$$
+D = \dfrac{(v_0^2 - 2gH)\sin{2\theta}}{g}\left(\dfrac{1}{2} + \dfrac{1}{2} \sqrt{1 + \dfrac{2gH}{(v_0^2 - 2gH)\sin^2 {\theta}}}\right)
+$$
+
+`r v`
+
+
+\fimSol
